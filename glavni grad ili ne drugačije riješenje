@@ -1,0 +1,40 @@
+<?php
+
+class Grad {
+    var string $naziv;
+    var int $br_stanovnika;
+    var float $povrsina;
+    var string $glavni; // necemo ovo preko bool, ali moze se
+}
+
+$lista_objekata = array(); // spremanje objekata u listu
+$n = 1; // pomocni brojac gradova
+
+for ($i = 0; $i < 2; $i++){     // 0,1
+    $Grad_Objekt = new Grad();  // instanciranje objekta
+    // Upis podataka
+    $Grad_Objekt->naziv = readline("Ucitaj naziv $n. grada: ");
+    $Grad_Objekt->br_stanovnika = readline("Ucitaj broj stanovnika: ");
+    $Grad_Objekt->povrsina = readline("Ucitaj povrsinu $n. grada: ");
+    $Grad_Objekt->glavni = readline("Je li GLAVNI GRAD ili NIJE (0 = Ne, 1 = Da) => ");
+
+    $lista_objekata[] = $Grad_Objekt; // Dodavanje objekta u listu
+    $n++;
+}
+
+echo "\n===| Ispis Podataka o Gradovima |===\n";
+
+foreach ($lista_objekata as $item => $value){  // "Za svaki <item> (grad) iz liste prođi mi kroz njegove vrijednosti
+    echo "Naziv grada: " . $value->naziv . "\n";
+    echo "Broj stanovnika: " . $value->br_stanovnika . "\n";
+    echo "Povrsina: " . $value->povrsina . "\n";
+    if ($value->glavni == "1"){
+        echo "Glavni Grad\n";
+    } else {
+        echo "Nije Glavni Grad\n";
+    }
+    echo "--------------------\n";
+}
+
+
+
