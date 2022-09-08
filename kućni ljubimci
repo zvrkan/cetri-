@@ -1,0 +1,76 @@
+<?php
+
+/*•	Definirajte klasu KucniLjubimac sa članovima (atributima) ime, vrsta i godina rođenja i odmah kreirajte listu 
+sa 5 kućnih ljubimaca. Omogućite korisniku pretraživanje kućnih ljubimaca po vrsti na način da korisnik upiše vrstu, 
+a vi ispišete imena i godine rođenja svih ljubimaca te vrste. Ako za traženu vrstu nema ljubimaca, napišite to. */
+
+
+class KucniLjubimci
+{
+    var $ime;
+    var $vrsta;
+    var $god_rod;
+}
+
+$lista_ljubimaca = array();
+
+$ljubimac1 = new KucniLjubimci();
+$ljubimac1 -> ime = "Rex";
+$ljubimac1 -> vrsta = "pas";
+$ljubimac1 -> god_rod = "2017";
+
+$lista_ljubimaca[] = $ljubimac1;
+
+$ljubimac2 = new KucniLjubimci();
+$ljubimac2 -> ime = "Felix";
+$ljubimac2 -> vrsta = "macka";
+$ljubimac2 -> god_rod = "2020";
+
+$lista_ljubimaca[] = $ljubimac2;
+
+$ljubimac3 = new KucniLjubimci();
+$ljubimac3 -> ime = "Rengo";
+$ljubimac3 -> vrsta = "zmija";
+$ljubimac3 -> god_rod = "2019";
+
+$lista_ljubimaca[] = $ljubimac3;
+
+$ljubimac4 = new KucniLjubimci();
+$ljubimac4 -> ime = "Dinko";
+$ljubimac4 -> vrsta = "macka";
+$ljubimac4 -> god_rod = "2015";
+
+$lista_ljubimaca[] = $ljubimac4;
+
+$ljubimac5 = new KucniLjubimci();
+$ljubimac5 -> ime = "Viksi";
+$ljubimac5 -> vrsta = "macka";
+$ljubimac5 -> god_rod = "2020";
+
+$lista_ljubimaca[] = $ljubimac5;
+$lista_pretrazenih = array();
+//print_r($lista_ljubimaca);
+ 
+$brojac = 0;
+
+$pretrazivanje = readline("Unesite vrstu koju zelite pretraziti: ");
+$pretrazivanje = strtolower($pretrazivanje);
+echo "\n";
+foreach($lista_ljubimaca as $key => $val)
+{
+    if($val->vrsta == $pretrazivanje)
+    {
+        $lista_pretrazenih[] = $val;
+        $brojac++;
+    }
+}
+//print_r($lista_pretrazenih);
+foreach($lista_pretrazenih as $k => $v)
+{
+    echo "Ime: " . $v->ime . "  Godina rodenja: " . $v->god_rod . "\n";
+}
+if($brojac == 0)
+{
+    echo "Za trazenu vrstu nema pretrazivanja!";
+}
+?>
