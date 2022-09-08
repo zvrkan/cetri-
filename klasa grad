@@ -1,0 +1,38 @@
+<?php
+
+//Definirati klasu Grad sa clanovima (atributima) naziv, broj stanovnika, povrsina i je li glavni grad ili nije
+//Napravite dvije instance strukture i ucitajte u njih vrijednosti od korisnika, te ih ispisite na ekran
+
+class Grad
+{
+    var $naziv;
+    var $broj_stanovnika;
+    var $povrsina;
+    var $glavni_gr;
+}
+
+$lista_gradova = array();
+
+for($i = 1; $i <= 2; $i++)
+{
+    $grad = new Grad();
+    $grad -> naziv = readline("Unesite naziv grada: ");
+    $grad -> broj_stanovnika = readline("Unesite broj stanovnika: ");
+    $grad -> povrsina = readline("Unesite povrsinu: ");
+    $grad -> glavni_gr = readline("Unesite je li to glavni grad DA/NE: ");
+
+    $lista_gradova[] = $grad;
+}
+
+echo "\n";
+
+foreach($lista_gradova as $kljuc => $vrijednost)
+{
+    echo "Naziv grada: " . $vrijednost -> naziv . "\n";
+    echo "Broj stanovnika: " . $vrijednost -> broj_stanovnika . "\n";
+    echo "Povrsina: " . $vrijednost -> povrsina . "\n";
+    echo "Glavni grad -> DA/NE: " . $vrijednost -> glavni_gr . "\n";
+    echo "\n";
+}
+
+?>
