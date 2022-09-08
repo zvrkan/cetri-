@@ -1,0 +1,54 @@
+<?php
+
+class KucniLjubimac {
+    var string $ime;
+    var string $vrsta;
+    var int $god_rodjenja;
+}
+
+$Ljubimac_1 = new KucniLjubimac();
+$Ljubimac_1->ime = "Skar";
+$Ljubimac_1->vrsta = "Mačka";
+$Ljubimac_1->god_rodjenja = 2021;
+
+$Ljubimac_2 = new KucniLjubimac();
+$Ljubimac_2->ime = "Simba";
+$Ljubimac_2->vrsta = "Pas";
+$Ljubimac_2->god_rodjenja = 2017;
+
+$Ljubimac_3 = new KucniLjubimac();
+$Ljubimac_3->ime = "Grga";
+$Ljubimac_3->vrsta = "Hrčak";
+$Ljubimac_3->god_rodjenja = 2018;
+
+$Ljubimac_4 = new KucniLjubimac();
+$Ljubimac_4->ime = "Zazu";
+$Ljubimac_4->vrsta = "Papiga";
+$Ljubimac_4->god_rodjenja = 2015;
+
+$Ljubimac_5 = new KucniLjubimac();
+$Ljubimac_5->ime = "Nemo";
+$Ljubimac_5->vrsta = "Mačka";
+$Ljubimac_5->god_rodjenja = 2020;
+
+$lista_ljubimaca = array($Ljubimac_1, $Ljubimac_2, $Ljubimac_3, $Ljubimac_4, $Ljubimac_5);
+
+// Upiši ime vrste koju pretražuješ, ispiši sva imena i godine rođenja te vrste
+$upit = readline("Upiši vrstu koju pretražuješ: ");
+echo "\nIspis svih Kućnih Ljubimaca vrste <" .$upit . ">\n";
+
+$check = False;
+foreach($lista_ljubimaca as $item => $value){
+    if($value->vrsta == $upit){
+        echo "\nIme: " . $value->ime;
+        echo "\nGodina rodjenja: " . $value->god_rodjenja;
+        $check = True;
+    }
+}
+
+if ($check == False){
+    echo "\nNema tražene vrste ljubimaca !";
+}
+
+
+
